@@ -12,7 +12,13 @@ class Caption {
         if (emojis.length == 1) {
             return this.caption;
         } else {
-            return this.caption.replace(regex, '');
+            let new_cap = this.caption.replace(regex, '');
+            let indexPosition = new_cap.indexOf("#");
+            new_cap = new_cap.split('');
+            new_cap.splice(indexPosition-1, 0, emojis[0]);
+            new_cap = new_cap.join('');
+            //new_cap += emojis[0];
+            return new_cap;
         }
     }
 
@@ -68,11 +74,11 @@ class Caption {
     }
 }
 
-let cap = new Caption("my trip TO LaKe Louise😂. #beautifulscenery #lake #ilovenature")
+let cap = new Caption("my trip TO LaKe Louise.😂 #beautifulscenery #lake #ilovenature")
 console.log(cap.correcthashtags())
 console.log(cap.removeemoji())
 console.log(cap.correctcaps())
-let cap1 = new Caption("my trip TO LaKe Louise😂😂. #beautifulscenery #lake #ilovenature")
+let cap1 = new Caption("my trip TO LaKe Louise.😂😂 #beautifulscenery #lake #ilovenature")
 console.log(cap1.correcthashtags())
 console.log(cap1.removeemoji())
 console.log(cap1.correctcaps())
