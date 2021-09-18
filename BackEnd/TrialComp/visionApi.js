@@ -60,10 +60,9 @@ async function logoDetection(){
     console.log('Logos:');
     logos.forEach(logo => console.log(logo));
 }
-logoDetection();
-
 
 label();
 faceDetection();
 detectText();
 detectLandmarks();
+logoDetection();
