@@ -41,7 +41,22 @@ class Caption {
         }
 
     correctcaps() {
+        let words = this.caption.trim().split(" ");
 
+        var corrected_string = '';
+        var updated = '';
+
+        for (let i = 0; i < words.length; i++ ) {
+            words[i].toLowerCase();
+            if (i == 0) {
+                updated = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+            } else {
+                updated = words[i].toLowerCase();
+            }
+            corrected_string += updated;
+            corrected_string += " ";
+        }
+        return corrected_string;
     }
 
     main() {
@@ -49,6 +64,7 @@ class Caption {
     }
 }
 
-let cap = new Caption("My trip to Lake Louise😂. #beautifulscenery #lake #ilovenature")
+let cap = new Caption("my trip TO LaKe Louise😂. #beautifulscenery #lake #ilovenature")
 console.log(cap.correcthashtags())
 console.log(cap.removeemoji())
+console.log(cap.correctcaps())
