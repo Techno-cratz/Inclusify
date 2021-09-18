@@ -7,6 +7,9 @@ class Caption {
 
     removeemoji() {
         // Will find the emojis > Make new string with no emoji > Make another string with emojis
+        var regex = /\p{Emoji_Presentation}/gu;
+        emojis = this.caption.match(regex);
+        return this.caption.replace(regex, '');
     }
 
     correcthashtags() {
