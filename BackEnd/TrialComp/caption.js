@@ -1,8 +1,11 @@
 // preprocessing of the provided caption
 const camelCase = require('camelcase');
+const request = require('request');
 class Caption {
+    
     constructor(caption) {
         this.caption = caption;
+        this.temp = "Hello"
     }
 
     removeemoji() {
@@ -22,14 +25,23 @@ class Caption {
         }
     }
 
+    foo(error, response, body) {
+        console.log(this.temp);
+
+    }
+
     correcthashtags() {
-        const tags =  this.caption.match(/#[a-z]+/gi);
-        let correct_tags = [];
+        let tags =  this.caption.match(/#[a-z]+/gi);
+        let temp = "abcd";
+        let correct_tags = "";
+        var hash = "#"
+        var newword;
+       
         for (let i=0; i<tags.length; i++) {
             tags[i] = tags[i].replace(/\#/g, '');
         }
-        /* for (let i=0; i<tags.length; i++) {
-            const request = require('request');
+        for (let i=0; i<tags.length; i++) {
+            let temp = "";
             const options = {
             method: 'POST',
             url: 'https://dnaber-languagetool.p.rapidapi.com/v2/check',
@@ -39,16 +51,19 @@ class Caption {
                 'x-rapidapi-key': '1569dfa3aemsha00b48996627551p1f11d6jsn7ad35603d960',
                 useQueryString: true
             },
-            form: {text: 'beautifulscenery', language: 'en-US'}
+            form: {text: tags[i], language: 'en-US'}
             };
 
-            request(options, function (error, response, body) {
-                if (error) throw new Error(error);
+            let r = request(options, this.foo)
+            //     function (error, response, body) {
+            //     console.log(temp);
+            //     if (error) throw new Error(error);
 
-                console.log(body);
-            }); */
-        return tags
+            //     newword = hash.concat(camelCase(newword));
+            // });
         }
+        return tags;
+    }
 
     correctcaps() {
         let words = this.caption.trim().split(" ");
@@ -74,6 +89,7 @@ class Caption {
     }
 }
 
+<<<<<<< HEAD
 let cap = new Caption("my trip TO LaKe Louise.😂 #beautifulscenery #lake #ilovenature")
 console.log(cap.correcthashtags())
 console.log(cap.removeemoji())
@@ -82,3 +98,7 @@ let cap1 = new Caption("my trip TO LaKe Louise.😂😂 #beautifulscenery #lake 
 console.log(cap1.correcthashtags())
 console.log(cap1.removeemoji())
 console.log(cap1.correctcaps())
+=======
+let cap = new Caption("My trip to Lake Louise. #beautifulscenery")
+console.log(cap.correcthashtags())
+>>>>>>> 60234abd33ccbce3b19ed3230b70371a68a48f43
