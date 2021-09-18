@@ -1,6 +1,7 @@
 // preprocessing of the provided caption
 const camelCase = require('camelcase');
 const request = require('request');
+var axios = require("axios").default;
 class Caption {
     
     constructor(caption) {
@@ -30,7 +31,7 @@ class Caption {
 
     }
 
-    correcthashtags() {
+    async correcthashtags() {
         let tags =  this.caption.match(/#[a-z]+/gi);
         let temp = "abcd";
         let correct_tags = "";
@@ -41,27 +42,26 @@ class Caption {
             tags[i] = tags[i].replace(/\#/g, '');
         }
         for (let i=0; i<tags.length; i++) {
-            let temp = "";
-            const options = {
-            method: 'POST',
-            url: 'https://dnaber-languagetool.p.rapidapi.com/v2/check',
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded',
-                'x-rapidapi-host': 'dnaber-languagetool.p.rapidapi.com',
-                'x-rapidapi-key': '1569dfa3aemsha00b48996627551p1f11d6jsn7ad35603d960',
-                useQueryString: true
-            },
-            form: {text: tags[i], language: 'en-US'}
-            };
-
-            let r = request(options, this.foo)
-            //     function (error, response, body) {
-            //     console.log(temp);
-            //     if (error) throw new Error(error);
-
-            //     newword = hash.concat(camelCase(newword));
-            // });
+            console.log(tags[i]);
+            var options = {
+                method: 'POST',
+                url: 'https://dnaber-languagetool.p.rapidapi.com/v2/check',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'x-rapidapi-host': 'dnaber-languagetool.p.rapidapi.com',
+                    'x-rapidapi-key': '1569dfa3aemsha00b48996627551p1f11d6jsn7ad35603d960'
+                },
+                params: {text: tags[i], language: 'en-US'}
+                };
+                
+                var str = await axios.request(options).then(function (response) {
+                    return response.data["matches"][0]["replacements"][0]["value"];
+                }).catch(function (error) {
+                    console.error(error);
+                });
+                tags[i] = hash.concat(camelCase(str));
         }
+        console.log(tags);
         return tags;
     }
 
@@ -89,16 +89,5 @@ class Caption {
     }
 }
 
-<<<<<<< HEAD
-let cap = new Caption("my trip TO LaKe Louise.😂 #beautifulscenery #lake #ilovenature")
+let cap = new Caption("my trip TO LaKe Louise.😂 #beautifulscenery #iloveyou")
 console.log(cap.correcthashtags())
-console.log(cap.removeemoji())
-console.log(cap.correctcaps())
-let cap1 = new Caption("my trip TO LaKe Louise.😂😂 #beautifulscenery #lake #ilovenature")
-console.log(cap1.correcthashtags())
-console.log(cap1.removeemoji())
-console.log(cap1.correctcaps())
-=======
-let cap = new Caption("My trip to Lake Louise. #beautifulscenery")
-console.log(cap.correcthashtags())
->>>>>>> 60234abd33ccbce3b19ed3230b70371a68a48f43
