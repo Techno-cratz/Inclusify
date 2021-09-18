@@ -11,7 +11,7 @@ const client = new vision.ImageAnnotatorClient({
  */
 // const fileName = 'Local image file, e.g. /path/to/image.png';
 async function test() {
-    const fileName = '/Users/vardansaini/Pictures/BG/Steve.jpg';
+    const fileName = './Steve.jpg';
 // Performs label detection on the local file
     const [result] = await client.labelDetection(fileName);
     const labels = result.labelAnnotations;
