@@ -43,3 +43,34 @@
   text-transform: capitalize;
   text-align: center;
 }
+
+.containerBox {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.containerBox img {
+  width: 100%;
+  height: auto;
+}
+
+.btnBox {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(224, 200, 200);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btnBox:hover {
+  background-color: black;
+}
