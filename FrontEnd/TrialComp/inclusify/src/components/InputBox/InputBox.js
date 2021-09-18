@@ -18,16 +18,17 @@ const InputBox = () => {
       <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <form method="post" action="#" id="#">
+          <div class="col-md-6" style={imageFile==null ? {} : {display: 'none'}}>
+          {/* style={imageFile==null ? {} : {display: 'none'}} */}
+            <form method="post" action="#" id="#" >
               <div class="form-group files">
-                <label>Upload Your File </label>
+                {/* <label>Upload Your File </label> */}
                 <input type="file"  id="myFile" name="filename" class="form-control" multiple="" onChange={addImage}/>
               </div>
             </form>
           </div>
           <div class="col-md-6">
-            <img src={imageFile} />
+            <img src={imageFile} class="form-control"/>
           </div>
         </div>
       </div>
@@ -36,6 +37,7 @@ const InputBox = () => {
     </>
   )
 }
+
 
 
 export default InputBox;
