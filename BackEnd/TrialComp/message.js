@@ -48,7 +48,7 @@ async function uploadMedia(url,type,size,image) {
 async function testing(size, type,image) {
     const url1 = await getMediaURL(size, type);
     console.log(url1);
-    //uploadMedia(url1, type, size, image);
+    uploadMedia(url1, type, size, image);
 
 }
 testing(8184, "image/jpg");
