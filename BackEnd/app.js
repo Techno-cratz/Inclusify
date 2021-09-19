@@ -57,6 +57,9 @@ app.post('/api/v1/update/analyze/caption', (req, res) => {
 });
 
 
+app.post('/api/v1/update/post', (req, res) => {
+  postHootsuite
+});
 
 app.listen(3001, function () {
   console.log('Example app listening on port 3001!');
@@ -82,6 +85,7 @@ async function processInput(imageFile, imageFileLoc) {
   console.log(tempCaption);
   console.log(imageFile.size);
   const capObj = await captionProcess.processCaption(imageFileLoc, tempCaption)
+  console.log(capObj)
   console.log("Done")
 }
 

@@ -11,7 +11,7 @@ flex-direction: column;
 `;
 
 export const BoxContainer = styled.div`
-  width: 70%;
+  width: 80%;
   height: 70vh;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@ export const SubmitButton = styled.button`
 `;
 
 
-const HeaderText = styled.h1`
+export const HeaderText = styled.h1`
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -58,4 +58,13 @@ const HeaderText = styled.h1`
   z-index: 10;
   margin: 0;
   color: #006298;
+`;
+
+export const ImEl = styled.image `
+  z-index: 10;
+`
+
+export const InBoxCont = styled.div `
+  display: flex;
+  flex-direction: column;
 `;

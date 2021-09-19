@@ -11,7 +11,7 @@ let reviewstring = "There are multiple emojis detected in your caption. Consider
  * 
  * @returns 
  */
-function processCaption(dir, inp) {
+function processCaption(dir="./bhangra.jpg", inp="hi THERE 😀😃😄😁 #havingfun #livelyhuman") {
     const capArr = cf.computerVision(dir).then(
         function (output) {
             let cap = new df.Caption(inp);
@@ -24,8 +24,8 @@ function processCaption(dir, inp) {
                 finalcaption += "Image Description: "
                 finalcaption += output + "\n"; // Azure caption
                 finalcaption += cap.caption + " "; // Caption corrector
-                console.log(finalcaption);
-                console.log(reviewstring);
+                // console.log(finalcaption);
+                // console.log(reviewstring);
                 return [finalcaption, reviewstring];
             };
             return  capa();

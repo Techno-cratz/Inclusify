@@ -11,7 +11,7 @@ export function PostInput () {
     <>
       
       <DashPage>
-      <h1>INCLUSIFY</h1>
+      {/* <h1>INCLUSIFY</h1> */}
         <BoxContainer>
           <FileUpload />  
         </BoxContainer>

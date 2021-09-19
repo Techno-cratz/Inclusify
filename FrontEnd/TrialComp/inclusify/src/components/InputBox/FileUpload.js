@@ -3,6 +3,8 @@ import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
 
+import { InBoxCont } from './common';
+
 const FileUpload = () => {
   const [file, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
@@ -10,6 +12,7 @@ const FileUpload = () => {
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
   const [captionText, setCaptionText] = useState('');
+  const [gotResponse, setGotResponse] = useState(false);
 
   const onChange = e => {
     setFile(e.target.files[0]);
@@ -72,10 +75,12 @@ const FileUpload = () => {
       }
       setUploadPercentage(0)
     }
+    setGotResponse(true)
   };
 
   return (
     <Fragment>
+      <InBoxCont> 
       <div className="p-5">
         {message ? <Message msg={message} /> : null}
         <form onSubmit={onSubmit}>
@@ -114,6 +119,10 @@ const FileUpload = () => {
         ) : null} */}
 
       </div>
+      {gotResponse == true && <> 
+        <img src={file}/>
+      </>}
+      </InBoxCont>
     </Fragment>
   );
 };
