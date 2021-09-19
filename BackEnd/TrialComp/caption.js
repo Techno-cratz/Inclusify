@@ -82,20 +82,21 @@ class Caption {
         this.caption = corrected_string;
         return this.caption;
     }
-
-    main() {
-    }
 }
 
-let cap = new Caption("hi THERE 😀😃😄😁 #blacklivesmatter");
-cap.removeemoji();
-cap.correctcaps();
+// let cap = new Caption("hi THERE 😀😃😄😁  #blacklivesmatter");
+// cap.removeemoji();
+// cap.correctcaps();
 
 
-const capa = async () => {
-    await cap.correcthashtags();
-    console.log(cap.caption);
-};
+// const capa = async () => {
+//     await cap.correcthashtags();
+//     console.log(cap.caption);
+// };
 
-// cap.correcthashtags();
-capa();
+// // cap.correcthashtags();
+// capa();
+
+module.exports =  {
+    Caption
+    }

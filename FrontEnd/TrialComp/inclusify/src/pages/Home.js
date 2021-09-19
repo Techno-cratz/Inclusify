@@ -1,10 +1,10 @@
 import React from 'react';
-import InputBox from '../components/InputBox/InputBox';
+import FileUpload from '../components/InputBox/FileUpload';
 
 export default function Home() {
   return (
     <>
-      <InputBox />
+      <FileUpload />
     </>
   )
 }

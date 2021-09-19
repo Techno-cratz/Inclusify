@@ -28,7 +28,7 @@ const InputBox = () => {
       },
       body: JSON.stringify(reqObject),
     }
-    
+
     // Ideally contains the json object sent by the backend
     const resJson = await fetch('/api/v1/update/analyze', option)
       .then(response => response.json());
@@ -48,7 +48,8 @@ const InputBox = () => {
       <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
       <div class="container">
         <div >
-          <div class="col-md-6" style={imageFile == null ? {} : { display: 'none' }}>
+          {/* style={imageFile == null ? {} : { display: 'none' }} */}
+          <div class="col-md-6" >
             {/* style={imageFile==null ? {} : {display: 'none'}} */}
             <form onSubmit={submitForReview}>
               <div class="form-group files">
@@ -56,7 +57,6 @@ const InputBox = () => {
                 <input type="file" id="myFile" name="filename" class="form-control" multiple="" onChange={addImage} />
               </div>
               <div class="form-group">
-                {/* <label for="exampleFormControlTextarea1">Example textarea</label> */}
                 <textarea class="form-control" id="caption_text_area" rows="4" onChange={getCaption}></textarea>
               </div>
               <div class="form-group">
@@ -65,7 +65,7 @@ const InputBox = () => {
             </form>
           </div>
           <div class="col-md-6 containerBox" style={imageFile != null ? {} : { display: 'none' }}>
-            <img src={imageFile} class="form-control" alt=""/>
+            <img src={imageFile} class="form-control" alt="" />
             <button class="btnBox">Button</button>
           </div>
         </div>
