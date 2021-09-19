@@ -78,7 +78,7 @@ const hootSuiteApiCall = async function (size, type, image, text, time) {
     let data = await getMediaURL(size, type);
     //console.log(data)
     const url1 = data[0]
-    const id = "aHR0cHM6Ly9ob290c3VpdGUtdmlkZW8uczMuYW1hem9uYXdzLmNvbS9wcm9kdWN0aW9uLzI0MTgyNTI0X2VlZmE2NjU0LWVkOTktNDE3Ny04NmE4LTQwMjViNGY2NzU5YS5qcGc="
+    const id = data[1]
     console.log(url1);
     console.log(id);
     console.log("...............")
