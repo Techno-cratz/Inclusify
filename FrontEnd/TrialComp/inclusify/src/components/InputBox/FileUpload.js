@@ -9,7 +9,7 @@ const FileUpload = () => {
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
-  const [captionText, setCaptionText] = useState("");
+  const [captionText, setCaptionText] = useState('');
 
   const onChange = e => {
     setFile(e.target.files[0]);
@@ -21,13 +21,29 @@ const FileUpload = () => {
     setCaptionText(event.target.value);
   }
 
+  const submitCaption = async () => {
+    const reqObject = {
+      "caption": captionText 
+    };
+    const option = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reqObject),
+    };
+    const resJson = await fetch('/api/v1/update/analyze/caption', option)
+    .then(response => response.json());
+  }
+
   const onSubmit = async e => {
     e.preventDefault();
+    submitCaption();
     const formData = new FormData();
     formData.append('file', file);
-
+    // formData.append('caption', captionText)
     try {
-      const res = await axios.post('/api/v1/update/analyze', formData, {
+      const res = await axios.post('/api/v1/update/analyze/image', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },

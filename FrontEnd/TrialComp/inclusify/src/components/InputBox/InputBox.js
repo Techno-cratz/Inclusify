@@ -57,7 +57,6 @@ const InputBox = () => {
                 <input type="file" id="myFile" name="filename" class="form-control" multiple="" onChange={addImage} />
               </div>
               <div class="form-group">
-                {/* <label for="exampleFormControlTextarea1">Example textarea</label> */}
                 <textarea class="form-control" id="caption_text_area" rows="4" onChange={getCaption}></textarea>
               </div>
               <div class="form-group">
