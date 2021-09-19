@@ -29,42 +29,26 @@ const computerVisionClient = new ComputerVisionClient(
  */
 
 // <snippet_functiondef_begin>
-function computerVision(filepath) {
-  async.series([
-    async function () {
-      // </snippet_functiondef_begin>
 
-      /**
-       * DESCRIBE IMAGE
-       * Describes what the main objects or themes are in an image.
-       * Describes both a URL and a local image.
-       */
-      console.log('-------------------------------------------------');
-      console.log('DESCRIBE IMAGE');
-      console.log();
+async function computerVision (filepath) {
+  // </snippet_functiondef_begin>
 
-      const describeImagePath = filepath;
-      // Analyze local image
-      console.log('\nAnalyzing local image to describe...', path.basename(describeImagePath));
-      // DescribeImageInStream takes a function that returns a ReadableStream, NOT just a ReadableStream instance.
-      const captionLocal = (await computerVisionClient.describeImageInStream(
-        () => createReadStream(describeImagePath))).captions[0];
-      console.log(`This may be ${captionLocal.text} (${captionLocal.confidence.toFixed(2)} confidence)`);
-      /**
-       * END - Describe Image
-       */
-      console.log();
-    },
-    function () {
-      return new Promise((resolve) => {
-        resolve();
-      })
-    }
-  ], (err) => {
-    throw (err);
-  });
+  /**
+   * DESCRIBE IMAGE
+   * Describes what the main objects or themes are in an image.
+   * Describes both a URL and a local image.
+   */
+
+  const describeImagePath = filepath;
+  // DescribeImageInStream takes a function that returns a ReadableStream, NOT just a ReadableStream instance.
+  const captionLocal = (await computerVisionClient.describeImageInStream(
+    () => createReadStream(describeImagePath))).captions[0];
+  // console.log(`This may be ${captionLocal.text}`);
+  return Promise.resolve(captionLocal.text);
+  /**
+   * END - Describe Image
+   */
 }
-
-computerVision("C:\\Users\\Noor\\Desktop\\Projects\\Inclusify\\BackEnd\\TrialComp\\Steve.jpg");
-
-
+module.exports =  {
+  computerVision
+}
