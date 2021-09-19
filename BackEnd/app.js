@@ -63,6 +63,10 @@ app.listen(3001, function () {
 });
 
 function postHootsuite(imageFile) {
+  // Call the testing function
+  const time = new Date(new Date().getTime() + 7 * 60000);
+  hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", time)
+
   // Call the testing function 
   // hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", new Date(2021, 9, 19, 11, 9, 0))
 }
