@@ -1,6 +1,9 @@
 var express = require('express');
 const fileUpload = require('express-fileUpload');
 
+const hootSuite = require('./TrialComp/message')
+
+
 var app = express();
 app.use(express.json({limit: '1mb'}))
 app.use(fileUpload());
@@ -22,7 +25,10 @@ app.post('/api/v1/update/analyze/image', (req, res) => {
   }
   // console.log(req.files)
   let file = req.files.file
-  console.log(file.data)
+  
+  // 
+  postHootsuite(file)
+
   file.mv(`${__dirname}/uploads/${file.name}`, err => {
     if (err) {
       console.error(err);
@@ -31,6 +37,7 @@ app.post('/api/v1/update/analyze/image', (req, res) => {
     res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
   });
 })
+
 
 app.post('/api/v1/update/analyze/caption', (req, res) => {
   // console.log("")
@@ -43,6 +50,14 @@ app.post('/api/v1/update/analyze/caption', (req, res) => {
   res.json(["Hello"]);
 });
 
+
+
 app.listen(3001, function () {
   console.log('Example app listening on port 3001!');
 });
+
+function postHootsuite(imageFile) {
+  // Call the testing function 
+  hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile)
+}
+

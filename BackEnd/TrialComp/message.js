@@ -45,13 +45,17 @@ async function uploadMedia(url,type,size,image) {
             console.log(error);});
 }
 
-async function testing(size, type,image) {
+const hootSuiteApiCall = async function (size, type, image) {
     const url1 = await getMediaURL(size, type);
-    console.log(url1);
-    uploadMedia(url1, type, size, image);
-
+    console.log(typeof(url1));
+    // uploadMedia(url1, type, size, image);
 }
-testing(8184, "image/jpg");
+
+// hootSuiteApiCall(8184, "image/jpg");
+
+
+
+module.exports = { hootSuiteApiCall }
 
 /*async function scheduleMessage(text, time) {
     const data = {

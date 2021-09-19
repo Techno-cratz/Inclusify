@@ -13,7 +13,6 @@ export function PostInput () {
         <BoxContainer>
           <FileUpload />  
         </BoxContainer>
-        
       </DashPage>
     </>
   )
