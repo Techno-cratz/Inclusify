@@ -6,14 +6,13 @@ class Caption {
     
     constructor(caption) {
         this.caption = caption;
-        this.temp = "Hello"
     }
 
     removeemoji() {
         // Will find the emojis > Make new string with no emoji > Make another string with emojis
         var regex = /\p{Emoji_Presentation}/gu;
         let emojis = this.caption.match(regex);
-        if (emojis.length == 1) {
+        if (emojis.length == 1 || emojis.length == 0) {
             return this.caption;
         } else {
             let new_cap = this.caption.replace(regex, '');
@@ -22,27 +21,24 @@ class Caption {
             new_cap.splice(indexPosition-1, 0, emojis[0]);
             new_cap = new_cap.join('');
             //new_cap += emojis[0];
-            return new_cap;
+            this.caption = new_cap;
+            return this.caption;
         }
-    }
-
-    foo(error, response, body) {
-        console.log(this.temp);
-
     }
 
     async correcthashtags() {
         let tags =  this.caption.match(/#[a-z]+/gi);
-        let temp = "abcd";
-        let correct_tags = "";
-        var hash = "#"
-        var newword;
+        var hash = "#";
+        var oldtagstring = "";
+        var newtagstring = "";
+        var regexp = /\#\w\w+\s?/g
+        this.caption = this.caption.replace(regexp, '');
        
         for (let i=0; i<tags.length; i++) {
             tags[i] = tags[i].replace(/\#/g, '');
+            oldtagstring+= tags[i]
         }
         for (let i=0; i<tags.length; i++) {
-            console.log(tags[i]);
             var options = {
                 method: 'POST',
                 url: 'https://dnaber-languagetool.p.rapidapi.com/v2/check',
@@ -60,9 +56,10 @@ class Caption {
                     console.error(error);
                 });
                 tags[i] = hash.concat(camelCase(str));
+                newtagstring += tags[i].concat(" ");
         }
-        console.log(tags);
-        return tags;
+        this.caption += newtagstring;
+        return this.caption;
     }
 
     correctcaps() {
@@ -81,13 +78,24 @@ class Caption {
             corrected_string += updated;
             corrected_string += " ";
         }
-        return corrected_string;
+
+        this.caption = corrected_string;
+        return this.caption;
     }
 
     main() {
-
     }
 }
 
-let cap = new Caption("my trip TO LaKe Louise.😂 #beautifulscenery #iloveyou")
-console.log(cap.correcthashtags())
+let cap = new Caption("hi😀#beautifulscenery");
+cap.removeemoji();
+cap.correctcaps();
+
+
+const capa = async () => {
+    await cap.correcthashtags();
+    console.log(cap.caption);
+};
+
+// cap.correcthashtags();
+capa();
