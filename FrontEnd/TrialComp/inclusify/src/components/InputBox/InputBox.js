@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './InputBox.css'
 
-const InputBox = () => {
+export const InputBox = () => {
   const [imageFile, setImageFile] = useState(null);
   const [captionText, setCaptionText] = useState("");
 

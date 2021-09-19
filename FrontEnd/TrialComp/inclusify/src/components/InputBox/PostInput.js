@@ -1,4 +1,5 @@
 import React from "react";
+import {InputBox} from './InputBox'
 
 import {
   DashPage,
@@ -14,6 +15,7 @@ export function PostInput () {
       {/* <h1>INCLUSIFY</h1> */}
         <BoxContainer>
           <FileUpload />  
+          {/* <InputBox /> */}
         </BoxContainer>
       </DashPage>
     </>

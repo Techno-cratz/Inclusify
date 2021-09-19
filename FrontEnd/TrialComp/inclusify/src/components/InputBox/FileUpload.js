@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
+import im from './images/pancakes.jpg'
+
 
 import { InBoxCont } from './common';
 import { FinalInput } from './FinalInput';
@@ -122,16 +124,26 @@ const FileUpload = () => {
         ) : null} */}
 
       </div>
-      {gotResponse == true && <> 
-        <img src={file}/>
-      </>}
+      
       </InBoxCont>
     </Fragment>
     }
     {
       gotResponse == true && 
-        <FinalInput />
-      
+        <>
+        <div style={{padding: 10}}>
+        <img src={im} style={{width: 300, height: 300, justifyContent: "center", alignItems: "center"}}/>
+        <p>
+        Image Description: a stack of pancakes with blueberries on top
+        Try out our new pancakes menu starting tomorrow.🤤 #yummyFood #yummyBreakfast #mapleSyrup
+
+
+        There may be words where uppercase is used very frequently
+        The hashtags do not appear to be camelcased
+        </p>
+        </div>
+        
+        </>
     }
     </>
     

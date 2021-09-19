@@ -12,7 +12,7 @@ import {
 import  pic from './images/pancakes.jpg';
 
 export function FinalInput (props) {
-  const {imageFile, captionText} = props;
+  const {imageFileP, captionTextP} = props;
 
   const onClickHandler = async () => {
     const option = {
@@ -31,7 +31,7 @@ export function FinalInput (props) {
       <DashPage>
       <BoxContainer style={{padding: 20}}>
         {/* <ImEl src={image} className="img-fluid"/> */}
-        <img src={pic} style={{width: 300, height: 300, justifyContent: "center", alignItems: "center"}}/>
+        <img src={imageFileP} style={{width: 300, height: 300, justifyContent: "center", alignItems: "center"}}/>
         <p>
         Image Description: a stack of pancakes with blueberries on top
         Try out our new pancakes menu starting tomorrow.🤤 #yummyFood #yummyBreakfast #mapleSyrup

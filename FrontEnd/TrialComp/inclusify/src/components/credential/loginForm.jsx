@@ -11,6 +11,8 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -24,7 +26,7 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit">LOG IN</SubmitButton>
+      <Link to="/input"><SubmitButton type="submit">LOG IN</SubmitButton></Link>
       <Marginer direction="vertical" margin="1em" />
       <DividerText>OR</DividerText>
       {/* <DividerBox>
