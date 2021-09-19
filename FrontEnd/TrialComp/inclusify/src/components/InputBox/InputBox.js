@@ -48,7 +48,8 @@ const InputBox = () => {
       <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
       <div class="container">
         <div >
-          <div class="col-md-6" style={imageFile == null ? {} : { display: 'none' }}>
+          {/* style={imageFile == null ? {} : { display: 'none' }} */}
+          <div class="col-md-6" >
             {/* style={imageFile==null ? {} : {display: 'none'}} */}
             <form onSubmit={submitForReview}>
               <div class="form-group files">

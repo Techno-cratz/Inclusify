@@ -1,7 +1,9 @@
 var express = require('express');
+const fileUpload = require('express-fileUpload');
 
 var app = express();
-app.use(express.json({limit: '1mb'}))
+// app.use(express.json({limit: '1mb'}))
+app.use(fileUpload());
 
 const testImp = require('./TrialComp/testImport');
 
@@ -14,11 +16,22 @@ app.get('/', function (req, res) {
  */
 app.post('/api/v1/update/analyze', (req, res) => {
   console.log("Request Received")
-  let dat = req.body
-  console.log(dat)
+  if (req.files === null) {
+    console.log("Image not Received"); // TODO: Remove the log
+    return res.status(400).json({ msg: 'No file uploaded' });
+  }
+  let file = req.files.file
+  console.log(file.size)
 
-  res.json(["Hello"]);
+  file.mv(`${__dirname}/uploads/${file.name}`, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send(err);
+    }
+    res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
+  });
 })
+
 
 
 app.listen(3001, function () {
