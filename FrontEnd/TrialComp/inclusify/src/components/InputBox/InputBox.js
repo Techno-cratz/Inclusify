@@ -28,7 +28,7 @@ const InputBox = () => {
       },
       body: JSON.stringify(reqObject),
     }
-    
+
     // Ideally contains the json object sent by the backend
     const resJson = await fetch('/api/v1/update/analyze', option)
       .then(response => response.json());
@@ -65,7 +65,7 @@ const InputBox = () => {
             </form>
           </div>
           <div class="col-md-6 containerBox" style={imageFile != null ? {} : { display: 'none' }}>
-            <img src={imageFile} class="form-control" alt=""/>
+            <img src={imageFile} class="form-control" alt="" />
             <button class="btnBox">Button</button>
           </div>
         </div>
