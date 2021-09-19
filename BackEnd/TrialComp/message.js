@@ -1,5 +1,5 @@
 const axios = require("axios");
-const token = "TyB5lPcGtnUkDHUHovGy-I_B_W7r6w4XrGAR68mMD1s.W8uq8CaKCyx4PY9is_iO02WevCSdHDQrBD5Gjcgn92w";
+const token = "meCwGx4fuG8UyxqmzXEwyEjoDklsiWnUOe9n2CN1xg8.b9shi_TK8YM6d8Eaa2CcazRpeejLrtcFinzFn6wCcsQ";
 const socialProfileId = 24182524;
 
 async function getMediaURL(size, type){
@@ -47,8 +47,9 @@ async function uploadMedia(url,type,size,image) {
 
 const hootSuiteApiCall = async function (size, type, image) {
     const url1 = await getMediaURL(size, type);
-    console.log(typeof(url1));
-    // uploadMedia(url1, type, size, image);
+    console.log(url1);
+    //uploadMedia(url1, type, size, image);
+
 }
 
 // hootSuiteApiCall(8184, "image/jpg");
