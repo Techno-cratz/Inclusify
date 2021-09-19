@@ -3,7 +3,7 @@ const fileUpload = require('express-fileUpload');
 const fs = require('fs');
 
 const hootSuite = require('./TrialComp/message')
-
+const captionProcess = require('./TrialComp/main1');
 
 var app = express();
 app.use(express.json({limit: '1mb'}))
@@ -27,7 +27,8 @@ app.post('/api/v1/update/analyze/image', (req, res) => {
   let file = req.files.file
   // 
   // postHootsuite(file)
-  processInput(file);
+  let filePath = `${__dirname}/uploads/${file.name}`
+  processInput(file, filePath);
   file.mv(`${__dirname}/uploads/${file.name}`, err => {
     if (err) {
       console.error(err);
@@ -71,10 +72,12 @@ function getCaption() {
   return tempCapt;
 }
 
-function processInput(imageFile) {
+async function processInput(imageFile, imageFileLoc) {
   console.log("Processing Input")
   const tempCaption = getCaption();
   console.log(tempCaption);
   console.log(imageFile.size);
+  const capObj = await captionProcess.processCaption(imageFileLoc, tempCaption)
+  console.log("Done")
 }
 
