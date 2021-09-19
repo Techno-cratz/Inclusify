@@ -13,6 +13,10 @@
     "axios": "^0.21.4",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.4",
-    "express-upload": "^0.1.0"
+    "express-upload": "^0.1.0",
+    "@azure/cognitiveservices-computervision": "^8.1.0",
+    "@google-cloud/vision": "^2.4.0",
+    "camelcase": "^6.2.0"
+    
   }
 }
