@@ -26,8 +26,8 @@ app.post('/api/v1/update/analyze/image', (req, res) => {
   // console.log(req.files)
   let file = req.files.file
   // 
-  postHootsuite(file)
-
+  // postHootsuite(file)
+  processInput(file);
   file.mv(`${__dirname}/uploads/${file.name}`, err => {
     if (err) {
       console.error(err);
@@ -50,7 +50,7 @@ app.post('/api/v1/update/analyze/caption', (req, res) => {
   // console.log(caption)
   fs.writeFile('./uploads/caption.txt', caption, function (err) {
     if (err) return console.log(err);
-    console.log('caption > ./uploads/caption.txt');
+    // console.log('caption > ./uploads/caption.txt');
   });
   res.json(["Hello"]);
 });
@@ -66,4 +66,15 @@ function postHootsuite(imageFile) {
   // hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", new Date(2021, 9, 19, 11, 9, 0))
 }
 
+function getCaption() {
+  const tempCapt = fs.readFileSync('./uploads/caption.txt', 'utf8')
+  return tempCapt;
+}
+
+function processInput(imageFile) {
+  console.log("Processing Input")
+  const tempCaption = getCaption();
+  console.log(tempCaption);
+  console.log(imageFile.size);
+}
 
