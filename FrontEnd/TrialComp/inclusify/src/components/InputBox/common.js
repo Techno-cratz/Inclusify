@@ -7,6 +7,7 @@ background-color: #EF8B77;
 align-items: center;
 justify-content: center;
 display: flex;
+flex-direction: column;
 `;
 
 export const BoxContainer = styled.div`
@@ -44,4 +45,17 @@ export const SubmitButton = styled.button`
   &:hover {
     filter: brightness(1.03);
   }
+`;
+
+
+const HeaderText = styled.h1`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 1.24;
+  color: #fff;
+  z-index: 10;
+  margin: 0;
+  color: #006298;
 `;

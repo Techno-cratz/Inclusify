@@ -6,9 +6,9 @@ import { PostInput } from '../components/InputBox/PostInput';
 export default function InputDashboard() {
   return (
     <>
-      {/* <PostInput /> */}
+      <PostInput />
       {/* <FileUpload /> */}
-      <FinalInput />
+      {/* <FinalInput /> */}
     </>
   );
 }
