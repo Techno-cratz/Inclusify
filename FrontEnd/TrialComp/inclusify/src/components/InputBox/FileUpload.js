@@ -79,7 +79,6 @@ const FileUpload = () => {
       <div className="p-5">
         {message ? <Message msg={message} /> : null}
         <form onSubmit={onSubmit}>
-          
           <div className='custom-file mb-4'>
             <input
               type='file'
@@ -92,9 +91,9 @@ const FileUpload = () => {
             </label>
           </div>
 
-          <Progress percentage={uploadPercentage} />
+          {/* <Progress percentage={uploadPercentage} /> */}
 
-          <div className="form-group">
+          <div className="form-group " style={{marginTop: '20%'}}>
             <textarea class="form-control" id="caption_text_area" rows="4" onChange={getCaption}></textarea>
           </div>
 
@@ -105,14 +104,14 @@ const FileUpload = () => {
           />
 
         </form>
-        {uploadedFile ? (
+        {/* {uploadedFile ? (
           <div className='row mt-5'>
             <div className='col-md-6 m-auto'>
               <h3 className='text-center'>{uploadedFile.fileName}</h3>
               <img style={{ width: '100%' }} src={uploadedFile.filePath} alt='' />
             </div>
           </div>
-        ) : null}
+        ) : null} */}
 
       </div>
     </Fragment>

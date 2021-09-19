@@ -9,7 +9,9 @@ import FileUpload from "./FileUpload";
 export function PostInput () {
   return (
     <>
+      
       <DashPage>
+      <h1>INCLUSIFY</h1>
         <BoxContainer>
           <FileUpload />  
         </BoxContainer>
