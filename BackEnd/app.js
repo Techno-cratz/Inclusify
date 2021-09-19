@@ -58,6 +58,6 @@ app.listen(3001, function () {
 
 function postHootsuite(imageFile) {
   // Call the testing function 
-  hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile)
+  hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", new Date(2021, 9, 19, 11, 9, 0))
 }
 
