@@ -14,6 +14,7 @@ app.get('/', function (req, res) {
  */
 app.post('/api/v1/update/analyze', (req, res) => {
   // console.log(req)
+  console.log("Request Received")
   res.json(["Hello"]);
 })
 

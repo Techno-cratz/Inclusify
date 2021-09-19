@@ -16,6 +16,7 @@ const InputBox = () => {
   }
 
   const submitForReview = async (event) => {
+    console.log("Sending Request")
     const reqObject = {
       "image": imageFile,
       "caption": captionText
@@ -27,6 +28,10 @@ const InputBox = () => {
       },
       body: JSON.stringify(reqObject),
     }
+    
+    // Ideally contains the json object sent by the backend
+    const resJson = await fetch('/api/v1/update/analyze', option)
+      .then(response => response.json());
     event.preventDefault();
   }
 
