@@ -87,7 +87,7 @@ class Caption {
     }
 }
 
-let cap = new Caption("hi😀#beautifulscenery");
+let cap = new Caption("hi THERE 😀😃😄😁 #blacklivesmatter");
 cap.removeemoji();
 cap.correctcaps();
 
