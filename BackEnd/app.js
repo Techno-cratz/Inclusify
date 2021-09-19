@@ -58,19 +58,17 @@ app.post('/api/v1/update/analyze/caption', (req, res) => {
 
 
 app.post('/api/v1/update/post', (req, res) => {
-  console.log("Post to hootsuit")
-  postHootsuite()
+  postHootsuite
 });
 
 app.listen(3001, function () {
   console.log('Example app listening on port 3001!');
 });
 
-function postHootsuite() {
+function postHootsuite(imageFile, captionTextRes) {
   // Call the testing function
-  const imageFile = fs.readFileSync('./uploads/pancakes.jpg')
   const time = new Date(new Date().getTime() + 7 * 60000);
-  hootSuite.hootSuiteApiCall(64000, "image/jpg", imageFile, "Hello World!", time)
+  hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, captionTextRes, time)
 
   // Call the testing function 
   // hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", new Date(2021, 9, 19, 11, 9, 0))
@@ -86,8 +84,8 @@ async function processInput(imageFile, imageFileLoc) {
   const tempCaption = getCaption();
   console.log(tempCaption);
   console.log(imageFile.size);
+  postHootsuite(imageFile, tempCaption)
   const capObj = await captionProcess.processCaption(imageFileLoc, tempCaption)
   console.log(capObj)
   console.log("Done")
 }
-

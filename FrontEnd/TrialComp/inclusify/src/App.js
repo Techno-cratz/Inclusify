@@ -11,8 +11,8 @@ function App() {
     <>
         {/* <Home /> */}
         {/* <Signin /> */}
-        {/* <InputDashboard /> */}
-        <FinalInput />
+        <InputDashboard />
+        {/* <FinalInput /> */}
         {/* <FileUpload /> */}
     </>
   );

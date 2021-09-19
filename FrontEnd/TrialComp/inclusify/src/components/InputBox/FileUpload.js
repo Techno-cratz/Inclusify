@@ -4,6 +4,7 @@ import Progress from './Progress';
 import axios from 'axios';
 
 import { InBoxCont } from './common';
+import { FinalInput } from './FinalInput';
 
 const FileUpload = () => {
   const [file, setFile] = useState('');
@@ -79,7 +80,9 @@ const FileUpload = () => {
   };
 
   return (
-    <Fragment>
+    <>
+    {
+      gotResponse == false && <Fragment>
       <InBoxCont> 
       <div className="p-5">
         {message ? <Message msg={message} /> : null}
@@ -124,6 +127,14 @@ const FileUpload = () => {
       </>}
       </InBoxCont>
     </Fragment>
+    }
+    {
+      gotResponse == true && 
+        <FinalInput />
+      
+    }
+    </>
+    
   );
 };
 
