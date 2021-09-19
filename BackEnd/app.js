@@ -2,7 +2,7 @@ var express = require('express');
 const fileUpload = require('express-fileUpload');
 const fs = require('fs');
 
-const hootSuite = require('./TrialComp/message')
+const hootSuite = require('./TrialComp/HootSuiteApi')
 const captionProcess = require('./TrialComp/main1');
 
 var app = express();
@@ -58,17 +58,19 @@ app.post('/api/v1/update/analyze/caption', (req, res) => {
 
 
 app.post('/api/v1/update/post', (req, res) => {
-  postHootsuite
+  console.log("Post to hootsuit")
+  postHootsuite()
 });
 
 app.listen(3001, function () {
   console.log('Example app listening on port 3001!');
 });
 
-function postHootsuite(imageFile) {
+function postHootsuite() {
   // Call the testing function
+  const imageFile = fs.readFileSync('./uploads/pancakes.jpg')
   const time = new Date(new Date().getTime() + 7 * 60000);
-  hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", time)
+  hootSuite.hootSuiteApiCall(64000, "image/jpg", imageFile, "Hello World!", time)
 
   // Call the testing function 
   // hootSuite.hootSuiteApiCall(imageFile.size, "image/jpg", imageFile, "Hello World!", new Date(2021, 9, 19, 11, 9, 0))

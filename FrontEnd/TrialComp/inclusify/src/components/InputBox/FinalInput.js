@@ -22,7 +22,7 @@ export function FinalInput (props) {
       },
       body: JSON.stringify({}),
     }
-    let resJson = await fetch('/api_getPrices', option)
+    let resJson = await fetch('/api/v1/update/post', option)
     .then(response => response.json())
   }
 

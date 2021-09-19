@@ -1,5 +1,5 @@
 const axios = require("axios");
-const token = "3_UFYd7XKLsc0PIyKpc0ERYkit9O3YM6ZDIaF11BVIU.PET2gmgwNlZ8gWkdmx_jfuTbHDkuGXdVMW7MNiMaLvI";
+const token = "EJ0vGSkXPakPD8oO8LrXHg1IIbq1Lb84gnfaFREPc7g.XbIL9-O2-EEirjwVclYqj3lWVK2j2ckwh2N0swIX6Ec";
 const socialProfileId = 135704464;
 
 async function getMediaURL(size, type){
