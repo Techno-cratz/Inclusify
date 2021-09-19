@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Inclusify/static/css/main.ef6d5120.chunk.css",
+    "main.js": "/Inclusify/static/js/main.960bdb78.chunk.js",
+    "main.js.map": "/Inclusify/static/js/main.960bdb78.chunk.js.map",
+    "runtime-main.js": "/Inclusify/static/js/runtime-main.c3cac11a.js",
+    "runtime-main.js.map": "/Inclusify/static/js/runtime-main.c3cac11a.js.map",
+    "static/js/2.072f41b5.chunk.js": "/Inclusify/static/js/2.072f41b5.chunk.js",
+    "static/js/2.072f41b5.chunk.js.map": "/Inclusify/static/js/2.072f41b5.chunk.js.map",
+    "static/js/3.44ab7cdf.chunk.js": "/Inclusify/static/js/3.44ab7cdf.chunk.js",
+    "static/js/3.44ab7cdf.chunk.js.map": "/Inclusify/static/js/3.44ab7cdf.chunk.js.map",
+    "index.html": "/Inclusify/index.html",
+    "static/css/main.ef6d5120.chunk.css.map": "/Inclusify/static/css/main.ef6d5120.chunk.css.map",
+    "static/js/2.072f41b5.chunk.js.LICENSE.txt": "/Inclusify/static/js/2.072f41b5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c3cac11a.js",
+    "static/js/2.072f41b5.chunk.js",
+    "static/css/main.ef6d5120.chunk.css",
+    "static/js/main.960bdb78.chunk.js"
+  ]
+}
